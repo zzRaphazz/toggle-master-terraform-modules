@@ -1,0 +1,17 @@
+name: Terraform module validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    uses: zzRaphazz/toggle-master-pipeline-workflows/.github/workflows/terraform-ci.yml@v1
+    with:
+      mode: modules
